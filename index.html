@@ -91,28 +91,11 @@
     <!-- ///////////////////////////////////////// -->
     <hr>
 
-    <p>git branch</p>
+    <p>
+        <b>git branch</b> (to see the current branch)
+    </p>
     <p>
         <b>git branch -a</b> (to see all branches, including remote branches)
-    </p>
-    <p>
-        <b>git branch -r</b> (to see only remote branches)
-    </p>
-    <p>
-        <b>git branch -vv</b> (to see local branches with their upstream tracking branches)
-    </p>
-    <hr>
-    <p>
-        <b>git checkout -b branch_name</b> (to create and switch to a new branch)
-    </p>
-    <p>
-        <b>git checkout branch_name</b> (to switch to an existing branch)
-    </p>
-    <p>
-        <b>git checkout -b branch_name origin/branch_name</b> (to create a new branch based on a remote branch)
-    </p>
-    <p>
-        <b>git checkout -b branch_name origin/branch_name --track</b> (to create a new branch and set it to track a remote branch)
     </p>
     <hr>
     <p>
@@ -126,23 +109,15 @@
     </p>
     <hr>
     <p>
-        <b>git push -u origin branch_name</b> (to push a new branch to the remote repository and set it to track the remote branch)
-    </p>
-    <p>
-        <b>git push origin branch_name</b> (to push changes to an existing branch on the remote repository)
-    </p>
-    <p>
-        <b>git push --set-upstream origin branch_name</b> (to set the upstream branch for the current branch)
+        <b>git push -u origin branch_name</b> (to push the new branch to the remote repository and set the upstream tracking)
     </p>
     <hr>
     <p>
         <b>git merge branch_name</b> (to merge changes from another branch into the current branch)
     </p>
+    <hr>
     <p>
-        <b>git merge --no-ff branch_name</b> (to merge changes from another branch into the current branch without fast-forwarding)
-    </p>
-    <p>
-        <b>git merge --squash branch_name</b> (to squash all commits from another branch into a single commit in the current branch)
+        <b>git branch -d branch_name</b> (to delete a branch after merging)
     </p>
 </body>
 
