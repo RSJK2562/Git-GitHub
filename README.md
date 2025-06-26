@@ -43,8 +43,8 @@ Visit the live guide: [Git & GitHub Reference Guide](https://your-username.githu
 
 ### Option 1: Clone the Repository
 ```bash
-git clone https://github.com/RSJK2562/Git-GitHub-Guide.git
-cd Git-GitHub-Guide
+git clone https://rsjk2562.github.io/Git-GitHub/
+cd Git-GitHub
 ```
 
 ### Option 2: Download ZIP
@@ -56,10 +56,9 @@ Simply visit the live demo link above to use the guide directly in your browser.
 ## 📁 Project Structure
 
 ```
-Git-GitHub-Guide/
+Git-GitHub/
 ├── index.html          # Main HTML file with the complete guide
 ├── README.md           # This file
-├── LICENSE             # MIT License
 ├── assets/
 │   ├── screenshot-desktop.png
 │   └── screenshot-mobile.png
@@ -121,24 +120,14 @@ Contributions are welcome! Here's how you can help:
 - Add interactive Git visualizations
 - Translate to more languages
 
-## 🐛 Bug Reports & Feature Requests
-
-Found a bug or have a feature request? Please open an issue on GitHub:
-
-- **Bug Report**: [Create Bug Report](https://github.com/RSJK2562/Git-GitHub-Guide/issues/new?template=bug_report.md)
-- **Feature Request**: [Request Feature](https://github.com/RSJK2562/Git-GitHub-Guide/issues/new?template=feature_request.md)
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👨‍💻 Author
 
 **Mr. Ravi (RSJK2562)**
 
 - GitHub: [@RSJK2562](https://github.com/RSJK2562)
-- LinkedIn: [Connect with me](https://linkedin.com/in/your-profile)
-- Email: your.email@example.com
+- LinkedIn: [Connect with me](https://www.linkedin.com/in/ravi-shankar-gautam-web-developer/)
+- Email: raviup198@gmail.com
 
 ## 🙏 Acknowledgments
 
