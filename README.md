@@ -23,7 +23,7 @@ This project provides a beautifully designed, professional reference guide for G
 
 ## 🖥️ Live Demo
 
-Visit the live guide: [Git & GitHub Reference Guide](https://your-username.github.io/Git-GitHub-Guide)
+Visit the live guide: [Git & GitHub Reference Guide](https://rsjk2562.github.io/Git-GitHub)
 
 ## 📸 Screenshots
 
@@ -43,7 +43,7 @@ Visit the live guide: [Git & GitHub Reference Guide](https://your-username.githu
 
 ### Option 1: Clone the Repository
 ```bash
-git clone https://rsjk2562.github.io/Git-GitHub/
+git clone https://github.com/RSJK2562/Git-GitHub.git
 cd Git-GitHub
 ```
 
@@ -62,6 +62,8 @@ Git-GitHub/
 ├── assets/
 │   ├── screenshot-desktop.png
 │   └── screenshot-mobile.png
+└── .gitignore
+
 ```
 
 ## 🛠️ Technologies Used
