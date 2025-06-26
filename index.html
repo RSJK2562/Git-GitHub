@@ -4,121 +4,425 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Git/GitHub</title>
+    <meta name="description" content="A professional reference guide for Git and GitHub, covering essential commands, workflows, and best practices for version control and collaboration.">
+    <meta name="keywords" content="Git, GitHub, version control, repository, branching, merging, commit, push, pull, remote repository, collaboration">
+    <meta name="author" content="Professional Git & GitHub Guide">
+    
+    <title>Git & GitHub - Professional Reference Guide</title>
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --background-color: #f8f9fa;
+            --card-background: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #e9ecef;
+            --code-background: #f1f3f4;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            margin: 20px;
-            background-color: #f4f4f4;
+            color: var(--text-primary);
+            background-color: var(--background-color);
         }
 
-        h1 {
-            color: #333;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        p {
-            color: #555;
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
         }
 
-        hr {
-            border: 0;
-            height: 1px;
-            background-color: #ccc;
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section {
+            background: var(--card-background);
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .command-group {
+            margin-bottom: 25px;
+        }
+
+        .command {
+            background: var(--code-background);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.95rem;
+            border-left: 3px solid var(--secondary-color);
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .command code {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .workflow {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
             margin: 20px 0;
+        }
+
+        .workflow h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .workflow ol {
+            padding-left: 20px;
+        }
+
+        .workflow li {
+            margin: 8px 0;
+            font-size: 0.95rem;
+        }
+
+        .tips-box {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #e17055;
+        }
+
+        .tips-box h4 {
+            color: #d63031;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .card {
+            background: var(--card-background);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border-top: 3px solid var(--secondary-color);
+        }
+
+        .card h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 12px;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .command:hover .copy-btn {
+            opacity: 1;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
         }
     </style>
 </head>
 
 <body>
-    <center>
-        <h1>Git/GitHub</h1>
-    </center>
-    <hr>
-    <p>
-        Git एक वर्जन कंट्रोल सिस्टम है जो आपको अपने प्रोजेक्ट के इतिहास को ट्रैक करने और विभिन्न संस्करणों के साथ काम
-        करने की अनुमति देता है।
-        GitHub एक ऑनलाइन प्लेटफ़ॉर्म है जो Git रिपॉजिटरीज़ को होस्ट करता है और सहयोग को आसान बनाता है।
-    </p>
-    <hr>
-    <p>
-        <b>git init</b> (एक नई Git रिपॉजिटरी बनाने के लिए)
-    </p>
-    <p>
-        <b>git add .</b> (सभी फाइलों को स्टेज करने के लिए)
-    </p>
-    <p>
-        <b>git commit -m "Initial commit"</b> (पहली कमिट बनाने के लिए)
-    </p>
-    <p>
-        <b>git branch -M main</b> (ब्रांच का नाम बदलने के लिए, जैसे कि "master" से "main" में)
-    </p>
-    <p>
-        <b>git remote add origin https://github.com/USERNAME/REPO_NAME.git</b>
-        (रिमोट रिपॉजिटरी जोड़ने के लिए, USERNAME और REPO_NAME को अपने GitHub यूजरनेम और रिपॉजिटरी नाम से बदलें)
+    <div class="container">
+        <div class="header">
+            <h1>Git & GitHub</h1>
+            <p>Professional Reference Guide for Version Control and Collaboration</p>
+        </div>
 
-    </p>
-    <p>
-        <b>git remote add origin https://github.com/RSJK2562/Git-GitHub.git</b>
-        (रिमोट रिपॉजिटरी जोड़ने के लिए, USERNAME और REPO_NAME को अपने GitHub यूजरनेम और रिपॉजिटरी नाम से बदलें)
-    </p>
-    <p>
-        <b>git push -u origin main</b> (रिमोट रिपॉजिटरी पर पुश करने के लिए, "main" ब्रांच को ट्रैक करने के लिए)
-    </p>
-    <hr>
-    <p>
-        अपनी लोकल ब्रांच का नाम "main" में बदलें और फिर पुश करें:
-        <br>
-        1. git branch -m master main
-        <br>
-        2. git push -u origin main
-    </p>
-    <hr>
-    <p>
-        अगर आपने GitHub पर README, लाइसेंस, या .gitignore के साथ एक खाली रिपॉजिटरी बनाई है, तो आपको पहले उन परिवर्तनों
-        को पुल करना होगा:
-        <br>
-        <b>
-            git pull origin main --allow-unrelated-histories
-        </b>
-    </p>
-    <hr>
-    <p>
-        <b>git remote -v</b> (to check the remote repositories)
-    </p>
-    <p>
-        <b>git remote remove origin</b> (to remove the remote repository)
-    </p>
-    <hr>
-    <p>
-        <b>git branch</b> (to see the current branch)
-    </p>
-    <p>
-        <b>git branch -a</b> (to see all branches, including remote branches)
-    </p>
-    <hr>
-    <p>
-        <b>git checkout -b your-branch-name</b> (to create a new branch and switch to it)
-    </p>
-    <p>
-        <b>git switch -c branch_name</b> (to create and switch to a new branch using the newer command)
-    </p>
-    <p>
-        <b>git switch branch_name</b> (to switch to an existing branch using the newer command)
-    </p>
-    <hr>
-    <p>
-        <b>git push -u origin branch_name</b> (to push the new branch to the remote repository and set the upstream
-        tracking)
-    </p>
-    <hr>
-    <p>
-        <b>git merge branch_name</b> (to merge changes from another branch into the current branch)
-    </p>
-    <hr>
-    <p>
-        <b>git branch -d branch_name</b> (to delete a branch after merging)
-    </p>
+        <div class="section">
+            <h2 class="section-title">📚 Overview</h2>
+            <p><strong>Git</strong> is a distributed version control system that allows you to track changes in your project history and work with different versions efficiently.</p>
+            <p><strong>GitHub</strong> is a cloud-based platform that hosts Git repositories and facilitates collaboration, code sharing, and project management.</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🚀 Initial Setup & First Commit</h2>
+            
+            <div class="workflow">
+                <h3>Quick Start Workflow</h3>
+                <ol>
+                    <li>Initialize a new Git repository</li>
+                    <li>Stage your files</li>
+                    <li>Create your first commit</li>
+                    <li>Connect to remote repository</li>
+                    <li>Push to GitHub</li>
+                </ol>
+            </div>
+
+            <div class="command-group">
+                <div class="command">
+                    <code>git init</code>
+                    <button class="copy-btn" onclick="copyToClipboard('git init')">Copy</button>
+                    <div class="description">Initialize a new Git repository in the current directory</div>
+                </div>
+
+                <div class="command">
+                    <code>git add .</code>
+                    <button class="copy-btn" onclick="copyToClipboard('git add .')">Copy</button>
+                    <div class="description">Stage all files for commit</div>
+                </div>
+
+                <div class="command">
+                    <code>git commit -m "Initial commit"</code>
+                    <button class="copy-btn" onclick="copyToClipboard('git commit -m \"Initial commit\"')">Copy</button>
+                    <div class="description">Create your first commit with a descriptive message</div>
+                </div>
+
+                <div class="command">
+                    <code>git branch -M main</code>
+                    <button class="copy-btn" onclick="copyToClipboard('git branch -M main')">Copy</button>
+                    <div class="description">Rename the default branch to 'main'</div>
+                </div>
+
+                <div class="command">
+                    <code>git remote add origin https://github.com/USERNAME/REPO_NAME.git</code>
+                    <button class="copy-btn" onclick="copyToClipboard('git remote add origin https://github.com/USERNAME/REPO_NAME.git')">Copy</button>
+                    <div class="description">Connect your local repository to a remote GitHub repository</div>
+                </div>
+
+                <div class="command">
+                    <code>git push -u origin main</code>
+                    <button class="copy-btn" onclick="copyToClipboard('git push -u origin main')">Copy</button>
+                    <div class="description">Push your code to GitHub and set upstream tracking</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🔄 Remote Repository Management</h2>
+            
+            <div class="tips-box">
+                <h4>⚠️ Important Note</h4>
+                <p>If you created a repository on GitHub with README, license, or .gitignore files, you'll need to pull those changes first before pushing your local code.</p>
+            </div>
+
+            <div class="command-group">
+                <div class="command">
+                    <code>git pull origin main --allow-unrelated-histories</code>
+                    <button class="copy-btn" onclick="copyToClipboard('git pull origin main --allow-unrelated-histories')">Copy</button>
+                    <div class="description">Pull remote changes when repositories have unrelated histories</div>
+                </div>
+
+                <div class="command">
+                    <code>git remote -v</code>
+                    <button class="copy-btn" onclick="copyToClipboard('git remote -v')">Copy</button>
+                    <div class="description">View all configured remote repositories</div>
+                </div>
+
+                <div class="command">
+                    <code>git remote remove origin</code>
+                    <button class="copy-btn" onclick="copyToClipboard('git remote remove origin')">Copy</button>
+                    <div class="description">Remove the remote repository connection</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h4>🌿 Branch Management</h4>
+                <div class="command">
+                    <code>git branch</code>
+                    <div class="description">List all local branches</div>
+                </div>
+                <div class="command">
+                    <code>git branch -a</code>
+                    <div class="description">List all branches (local + remote)</div>
+                </div>
+                <div class="command">
+                    <code>git checkout -b feature-branch</code>
+                    <div class="description">Create and switch to new branch</div>
+                </div>
+                <div class="command">
+                    <code>git switch -c branch-name</code>
+                    <div class="description">Modern way to create and switch</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h4>🔀 Merging & Collaboration</h4>
+                <div class="command">
+                    <code>git merge feature-branch</code>
+                    <div class="description">Merge branch into current branch</div>
+                </div>
+                <div class="command">
+                    <code>git push -u origin branch-name</code>
+                    <div class="description">Push new branch to remote</div>
+                </div>
+                <div class="command">
+                    <code>git branch -d branch-name</code>
+                    <div class="description">Delete merged branch</div>
+                </div>
+                <div class="command">
+                    <code>git branch -D branch-name</code>
+                    <div class="description">Force delete unmerged branch</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📥 Repository Operations</h2>
+            <div class="command-group">
+                <div class="command">
+                    <code>git clone https://github.com/username/repository-name.git</code>
+                    <button class="copy-btn" onclick="copyToClipboard('git clone https://github.com/username/repository-name.git')">Copy</button>
+                    <div class="description">Clone a remote repository to your local machine</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 Status & History</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="command">
+                        <code>git status</code>
+                        <div class="description">Check working directory status</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="command">
+                        <code>git log</code>
+                        <div class="description">View detailed commit history</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="workflow">
+            <h3>🎯 Typical Development Workflow</h3>
+            <ol>
+                <li><span class="highlight">git pull origin main</span> - Get latest changes</li>
+                <li><span class="highlight">git checkout -b feature/new-feature</span> - Create feature branch</li>
+                <li>Make your changes and save files</li>
+                <li><span class="highlight">git add .</span> - Stage changes</li>
+                <li><span class="highlight">git commit -m "Add new feature"</span> - Commit changes</li>
+                <li><span class="highlight">git push -u origin feature/new-feature</span> - Push to remote</li>
+                <li>Create Pull Request on GitHub</li>
+                <li>Merge after review and delete feature branch</li>
+            </ol>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Professional Git & GitHub Reference Guide</p>
+            <p>Stay updated with the latest Git practices and GitHub features</p>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                // You could add a toast notification here
+                console.log('Copied to clipboard: ' + text);
+            }).catch(function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
 </body>
 
 </html>
