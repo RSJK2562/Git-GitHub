@@ -28,7 +28,7 @@ Visit the live guide: [Git & GitHub Reference Guide](https://your-username.githu
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="assets/screenshot-desktop.png" alt="Desktop View" width="600">
+  <img src="assets/screenshot-desktop.jpeg" alt="Desktop View" width="600">
   <br>
   <em>Desktop View</em>
 </div>
