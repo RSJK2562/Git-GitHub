@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Multi-Branch Work in Git
+    </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        ol {
+            margin-left: 20px;
+        }
+        code {
+            background-color: #eaeaea;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: #ccc;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multi-Branch Work</h1>
+    <p>To work with multiple branches in Git, you can follow these steps:</p>
+    
+    <ol>
+        <li>Create a new branch: <code>git branch branch_name</code></li>
+        <li>Switch to the new branch: <code>git checkout branch_name</code></li>
+        <li>Make changes and commit them: 
+            <ul>
+                <li><code>git add .</code></li>
+                <li><code>git commit -m "Your commit message"</code></li>
+            </ul>
+        </li>
+        <li>Push the new branch to the remote repository: <code>git push -u origin branch_name</code></li>
+    </ol>
+
+    <p>To switch back to the main branch, use: <code>git checkout main</code></p>
+
+    <p>To merge changes from one branch into another, first switch to the target branch and then use: 
+        <code>git merge branch_name</code>
+    </p>
+
+    <p>To delete a branch after merging, use: <code>git branch -d branch_name</code></p>
+</body>
+</html>

@@ -5,6 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git/GitHub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: #ccc;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,14 +35,35 @@
         <h1>Git/GitHub</h1>
     </center>
     <hr>
-    <p>git init</p>
-    <p>git add .</p>
-    <p>git commit -m "Initial commit"</p>
-    <p>git branch -M main</p>
-
-    <p>git remote add origin https://github.com/USERNAME/REPO_NAME.git</p>
-    <p>git remote add origin https://github.com/RSJK2562/Git-GitHub.git</p>
-    <p>git push -u origin main</p>
+    <p>
+        Git एक वर्जन कंट्रोल सिस्टम है जो आपको अपने प्रोजेक्ट के इतिहास को ट्रैक करने और विभिन्न संस्करणों के साथ काम करने की अनुमति देता है।
+        GitHub एक ऑनलाइन प्लेटफ़ॉर्म है जो Git रिपॉजिटरीज़ को होस्ट करता है और सहयोग को आसान बनाता है।
+    </p>
+    <hr>
+    <p>
+        <b>git init</b> (एक नई Git रिपॉजिटरी बनाने के लिए)
+    </p>
+    <p>
+        <b>git add .</b> (सभी फाइलों को स्टेज करने के लिए)
+    </p>
+    <p>
+        <b>git commit -m "Initial commit"</b> (पहली कमिट बनाने के लिए)
+    </p>
+    <p>
+        <b>git branch -M main</b> (ब्रांच का नाम बदलने के लिए, जैसे कि "master" से "main" में)
+    </p>
+    <p>
+        <b>git remote add origin https://github.com/USERNAME/REPO_NAME.git</b>
+        (रिमोट रिपॉजिटरी जोड़ने के लिए, USERNAME और REPO_NAME को अपने GitHub यूजरनेम और रिपॉजिटरी नाम से बदलें)
+        
+    </p>
+    <p>
+        <b>git remote add origin https://github.com/RSJK2562/Git-GitHub.git</b> 
+        (रिमोट रिपॉजिटरी जोड़ने के लिए, USERNAME और REPO_NAME को अपने GitHub यूजरनेम और रिपॉजिटरी नाम से बदलें)
+    </p>
+    <p>
+        <b>git push -u origin main</b> (रिमोट रिपॉजिटरी पर पुश करने के लिए, "main" ब्रांच को ट्रैक करने के लिए)
+    </p>
     <hr>
 
     <p>
@@ -48,7 +92,58 @@
     <hr>
 
     <p>git branch</p>
-    <p></p>
+    <p>
+        <b>git branch -a</b> (to see all branches, including remote branches)
+    </p>
+    <p>
+        <b>git branch -r</b> (to see only remote branches)
+    </p>
+    <p>
+        <b>git branch -vv</b> (to see local branches with their upstream tracking branches)
+    </p>
+    <hr>
+    <p>
+        <b>git checkout -b branch_name</b> (to create and switch to a new branch)
+    </p>
+    <p>
+        <b>git checkout branch_name</b> (to switch to an existing branch)
+    </p>
+    <p>
+        <b>git checkout -b branch_name origin/branch_name</b> (to create a new branch based on a remote branch)
+    </p>
+    <p>
+        <b>git checkout -b branch_name origin/branch_name --track</b> (to create a new branch and set it to track a remote branch)
+    </p>
+    <hr>
+    <p>
+        <b>git checkout -b your-branch-name</b> (to create a new branch and switch to it)
+    </p>
+    <p>
+        <b>git switch -c branch_name</b> (to create and switch to a new branch using the newer command)
+    </p>
+    <p>
+        <b>git switch branch_name</b> (to switch to an existing branch using the newer command)
+    </p>
+    <hr>
+    <p>
+        <b>git push -u origin branch_name</b> (to push a new branch to the remote repository and set it to track the remote branch)
+    </p>
+    <p>
+        <b>git push origin branch_name</b> (to push changes to an existing branch on the remote repository)
+    </p>
+    <p>
+        <b>git push --set-upstream origin branch_name</b> (to set the upstream branch for the current branch)
+    </p>
+    <hr>
+    <p>
+        <b>git merge branch_name</b> (to merge changes from another branch into the current branch)
+    </p>
+    <p>
+        <b>git merge --no-ff branch_name</b> (to merge changes from another branch into the current branch without fast-forwarding)
+    </p>
+    <p>
+        <b>git merge --squash branch_name</b> (to squash all commits from another branch into a single commit in the current branch)
+    </p>
 </body>
 
 </html>
