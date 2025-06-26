@@ -62,7 +62,6 @@ Git-GitHub/
 ├── assets/
 │   ├── screenshot-desktop.png
 │   └── screenshot-mobile.png
-└── .gitignore
 ```
 
 ## 🛠️ Technologies Used
