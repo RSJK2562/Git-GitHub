@@ -12,7 +12,7 @@ Welcome to my project! This repository contains code and resources for my work.
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/your-repo.git
+    git clone https://github.com/RSJK2562/Git-GitHub.git
     ```
 2. Follow the setup instructions in the project.
 
